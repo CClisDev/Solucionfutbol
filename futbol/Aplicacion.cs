@@ -19,7 +19,7 @@ namespace futbol
 (5) Listar equipos de futbol
 (0) Salir
 ");
-                int option = RequestNumber(0, 4);
+                int option = RequestNumber(0, 5);
 
                 switch ((eMenuOptions)option)
                 {
@@ -33,7 +33,7 @@ namespace futbol
                         Console.WriteLine();
                         break;
                     case eMenuOptions.ListTeams:
-                        Console.WriteLine();
+                        Console.WriteLine(league.GetListTeams());
                         break;
                     case eMenuOptions.exit:
                         return;
@@ -76,7 +76,7 @@ namespace futbol
 
         public void ListPlayersByTeam()
         {
-
+            
         }
     }
 }

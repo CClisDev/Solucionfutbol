@@ -44,7 +44,7 @@ namespace futbol
 
         public override string ToString()
         {
-            return $"Nombre del equipo: {name} | Numero de jugadores: {players.Count} | Partidos Ganados: {numberDefeats} ";
+            return $"Nombre del equipo: {name} | Numero de jugadores: {players.Count} | Partidos Ganados: {numberWinners} | Partidos Perdidos: {numberDefeats} | Partidos en empate: {numberDraws}";
         }
     }
 }

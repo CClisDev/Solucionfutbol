@@ -6,7 +6,9 @@ namespace futbol
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("");
+            Aplicacion football = new Aplicacion();
+
+            football.Aplication();
         }
     }
 }

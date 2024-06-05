@@ -58,8 +58,10 @@ namespace futbol
 
             foreach (var team in teams)
             {
-                
+                listTeams.AppendLine(team.ToString());
             }
+
+            return listTeams.ToString();
         }
     }
 }
