@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace futbol
@@ -62,10 +63,11 @@ namespace futbol
         public string GetListTeams()
         {
             StringBuilder listTeams = new StringBuilder();
+            int index = 0;
 
             foreach (var team in teams)
             {
-                listTeams.AppendLine(team.ToString());
+                listTeams.AppendLine($"({index++}){team.Name}");
             }
 
             return listTeams.ToString();
