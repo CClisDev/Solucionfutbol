@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace futbol
 {
-    internal class Team
+    class Team
     {
         string name;
         List<Player> players = new List<Player>();
