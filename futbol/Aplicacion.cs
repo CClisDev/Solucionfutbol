@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace futbol
 {
@@ -7,6 +8,7 @@ namespace futbol
         private League league = new League("Champions League");
         public void Aplication()
         {
+
             while (true)
             {
                 Console.Write(@"
@@ -69,12 +71,26 @@ Introduce el numero: ");
 
         public void CreateAMatch() 
         {
+            int sel;
             // Listar clubes
-            // solicitar equipo local
-            // Solicatar equipo visitante
-            // fecha y hora
-            // Lugar
-            // Mostrar el resultado del partido
+            Console.WriteLine(league.GetListTeams());
+            Console.WriteLine(league.Teams.Count);
+            Console.WriteLine("Selecciona el equipo local");
+            sel = RequestNumber(0,league.Teams.Count - 1);
+            
+            Team x = league.Teams[sel];
+            Console.WriteLine("Selecciona el equipo visitante");
+            sel = RequestNumber(0, league.Teams.Count - 1);
+            Team y = league.Teams[sel];
+
+            Console.WriteLine("Introduce la fecha del partido:");
+            DateTime fecha = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Introduce la hora del partido:");
+
+            TimeSpan ts = TimeSpan.Parse(Console.ReadLine());
+            Game game = new Game(fecha,ts,"Club trinchera",x,y);
+
+            Console.WriteLine(game.ProcessGame());
         }
 
         public void AddAPlayer()
@@ -142,9 +158,19 @@ Introduce la posición:");
         }
 
         public void DeleteAPlayer() 
-        { 
+        {
             // Listar jugadores
-            // Pregunstar cual eliminar
+            if (league.Players.Count == 0)
+            {
+                Console.WriteLine("Aun no hay jugdores");
+            }
+            else {
+                Console.WriteLine("Que jugador quieres eliminar");
+                Console.WriteLine(league.GetPlayerList());
+                int number = RequestNumber(0, league.Players.Count - 1);
+                league.RemovePlayer(league.Players[number]);
+            }
+        
         }
 
         public void ListPlayersByTeam()
