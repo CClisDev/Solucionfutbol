@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace futbol
 {
@@ -22,7 +21,7 @@ namespace futbol
 (8) Mostrar estadísticas de un jugador
 (0) Salir
 Introduce el numero: ");
-                int option = RequestNumber(0, 5);
+                int option = RequestNumber(0, 8);
 
 
                 switch ((eMenuOptions)option)
@@ -44,6 +43,12 @@ Introduce el numero: ");
                         break;
                     case eMenuOptions.ListPlayers:
                         Console.WriteLine(league.GetPlayersList());
+                        break;
+                    case eMenuOptions.StatsOfClub:
+                        StatisticsOfClub();
+                        break;
+                    case eMenuOptions.StatsOfPlayer:
+                        StatisticsOfPlayer();
                         break;
                     case eMenuOptions.exit:
                         return;
@@ -74,18 +79,17 @@ Introduce el numero: ");
             int sel;
             // Listar clubes
             Console.WriteLine(league.GetListTeams());
-            Console.WriteLine(league.Teams.Count);
-            Console.WriteLine("Selecciona el equipo local");
+            Console.Write("Selecciona el equipo local: ");
             sel = RequestNumber(0,league.Teams.Count - 1);
             
             Team x = league.Teams[sel];
-            Console.WriteLine("Selecciona el equipo visitante");
+            Console.Write("Selecciona el equipo visitante: ");
             sel = RequestNumber(0, league.Teams.Count - 1);
             Team y = league.Teams[sel];
 
-            Console.WriteLine("Introduce la fecha del partido:");
+            Console.Write("Introduce la fecha del partido: ");
             DateTime fecha = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("Introduce la hora del partido:");
+            Console.Write("Introduce la hora del partido: ");
 
             TimeSpan ts = TimeSpan.Parse(Console.ReadLine());
             Game game = new Game(fecha,ts,"Club trinchera",x,y);
@@ -96,7 +100,6 @@ Introduce el numero: ");
         public void AddAPlayer()
         {
             //Equipo de futbol
-            Console.WriteLine(league.GetListTeams());
             Team team = RequestTeam();
 
             // Datos personales del jugador
@@ -151,10 +154,20 @@ Introduce la posición:");
 
         public Team RequestTeam()
         {
+            Console.WriteLine(league.GetListTeams());
             Console.Write("Introduce el numero del equipo: ");
             int teamNumber = RequestNumber(0, league.Teams.Count-1);
 
             return league.Teams[teamNumber];
+        }
+
+        public Player RequestPlayer()
+        {
+            Console.WriteLine(league.GetPlayersList());
+            Console.Write("Introduce el numero del jugador: ");
+            int playerNumber = RequestNumber(0, league.Players.Count - 1);
+
+            return league.Players[playerNumber];
         }
 
         public void DeleteAPlayer() 
@@ -166,7 +179,7 @@ Introduce la posición:");
             }
             else {
                 Console.WriteLine("Que jugador quieres eliminar");
-                Console.WriteLine(league.GetPlayerList());
+                Console.WriteLine(league.GetPlayersList());
                 int number = RequestNumber(0, league.Players.Count - 1);
                 league.RemovePlayer(league.Players[number]);
             }
@@ -175,11 +188,23 @@ Introduce la posición:");
 
         public void ListPlayersByTeam()
         {
-            // Listar clubes
-            Console.WriteLine(league.GetListTeams());
             Team team = RequestTeam();
 
             Console.Write(league.GetPlayersByTeam(team));
+        }
+
+        public void StatisticsOfClub()
+        {
+            Team team = RequestTeam();
+
+            Console.WriteLine(team.ToString());
+        }
+        
+        public void StatisticsOfPlayer()
+        {
+            Player player = RequestPlayer();
+
+            Console.WriteLine(player.ToString());
         }
     }
 }

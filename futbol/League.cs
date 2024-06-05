@@ -34,7 +34,6 @@ namespace futbol
             this.players.Add(player); // Añadir el jugador en la liga
         }
 
-        //Eliminar un jugador del equipo
         public void RemovePlayer(Player player)
         {
             players.Remove(player);
@@ -42,14 +41,15 @@ namespace futbol
             teams.Find(t => t == player.Team).Players.Remove(player);
         }
 
-        //Listar todo Jugadores
         public string GetPlayersList()
         {
             StringBuilder listPlayers = new StringBuilder();
 
-            foreach (var players in players)
+            int index = 0;
+
+            foreach (var player in players)
             {
-                listPlayers.AppendLine(players.ToString());
+                listPlayers.AppendLine($"({index++}) Nombre: {player.Name} | Equipo: {player.Team.Name}");
             }
 
             return listPlayers.ToString();
@@ -65,10 +65,11 @@ namespace futbol
             StringBuilder listTeams = new StringBuilder();
             int index = 0;
 
+            listTeams.AppendLine("");
 
             foreach (var team in teams)
             {
-                listTeams.AppendLine($"({index++}){team.Name}");
+                listTeams.AppendLine($"({index++}) {team.Name}");
             }
 
             return listTeams.ToString();
