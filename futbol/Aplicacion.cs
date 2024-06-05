@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace futbol
+﻿namespace futbol
 {
-    internal class Aplicacion
+    public class Aplicacion
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("");
-        }
+        
     }
 }
