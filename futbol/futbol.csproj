@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game.cs" />
     <Compile Include="Enum\eMenuOptions.cs" />
     <Compile Include="League.cs" />
     <Compile Include="Person.cs" />
