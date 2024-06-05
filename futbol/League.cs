@@ -62,10 +62,13 @@ namespace futbol
         public string GetListTeams()
         {
             StringBuilder listTeams = new StringBuilder();
+            int index = 0;
+
+            listTeams.AppendLine(" ");
 
             foreach (var team in teams)
             {
-                listTeams.AppendLine(team.ToString());
+                listTeams.AppendLine($"({index++}){team.Name}");
             }
 
             return listTeams.ToString();

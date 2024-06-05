@@ -18,7 +18,7 @@
         public string Position { get => position; set => position=value; }
         public Team Team { get => team; set => team=value; }
 
-        public Player(string position, int dorsalNumber, string name, string lastName, int age, double height, double weight)
+        public Player(Team team,string position, int dorsalNumber, string name, string lastName, int age, double height, double weight)
                         : base(name, lastName, age, height, weight)
         {
             this.dorsalNumber = dorsalNumber;
@@ -26,6 +26,7 @@
             this.numberAssists = 0;
             this.numberRedCards = 0;
             this.numberYellowCards = 0;
+            this.team = team;
         }
 
         public override string ToString()
