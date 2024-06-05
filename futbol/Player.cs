@@ -7,8 +7,9 @@
         public int numberRedCards { get; set; }
         public int numberYellowCards { get; set; }
         public int dorsalNumber { get; set; }
+        public string position { get; set; }
 
-        public Player(int dorsalNumber, string name, string lastName, int age, double height, double weight)
+        public Player(string position, int dorsalNumber, string name, string lastName, int age, double height, double weight)
                         : base(name, lastName, age, height, weight)
         {
             this.dorsalNumber = dorsalNumber;
@@ -20,7 +21,7 @@
 
         public override string ToString()
         {
-            return $"{base.ToString()} | Dorsal: {dorsalNumber} | Goles: {numberGoals} | Asistencias: {numberAssists} | Tarjetas amarillas: {numberYellowCards} | Tajetas Rojas: {numberRedCards} |";
+            return $"{base.ToString()} | Posición: {position} | Dorsal: {dorsalNumber} | Goles: {numberGoals} | Asistencias: {numberAssists} | Tarjetas amarillas: {numberYellowCards} | Tajetas Rojas: {numberRedCards} |";
         }
     }
 }
