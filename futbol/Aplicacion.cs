@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace futbol
 {
-    internal class Program
+    internal class Aplicacion
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("");
         }
     }
 }
