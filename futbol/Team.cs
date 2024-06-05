@@ -35,8 +35,10 @@ namespace futbol
         public string PlayerList() {
             StringBuilder listPlayers = new StringBuilder();
 
+            listPlayers.AppendLine(" ");
+
             foreach (Player player in players) {
-                listPlayers.AppendLine(player.ToString());
+                listPlayers.AppendLine($"Nombre: {player.Name} | Posición: {player.Position} | Dorsal: {player.DorsalNumber}");
             }
 
             return listPlayers.ToString();

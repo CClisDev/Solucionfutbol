@@ -6,8 +6,7 @@ namespace futbol
 {
     public class Aplicacion
     {
-        League league = new League("Champions League");
-
+        private League league = new League("Champions League");
         public void Aplication()
         {
 
@@ -64,7 +63,7 @@ Introduce el numero: ");
             }
         }
 
-        public void CreateAMatch()
+        public void CreateAMatch() 
         {
             int sel;
             // Listar clubes
@@ -90,13 +89,66 @@ Introduce el numero: ");
 
         public void AddAPlayer()
         {
-            // Posición
-            // numbero dorsal
-            // nombre
-            // apellido
-            //edad
-            // altura
-            // peso
+            //Equipo de futbol
+            Console.WriteLine(league.GetListTeams());
+            Team team = RequestTeam();
+
+            // Datos personales del jugador
+            Console.Write("Posición del Jugador: ");
+            string position = RequestPositionPlayer();
+
+            Console.Write("Numero dorsal del Jugador: ");
+            int dorsalNumber = RequestNumber(0, 99);
+
+            Console.Write("Nombre del jugador: ");
+            string namePlayer = Console.ReadLine();
+
+            Console.Write("Apellidos del jugador: ");
+            string lastNamePlayer = Console.ReadLine();
+
+            Console.Write("Edad del jugador: ");
+            int age = RequestNumber(0, 99);
+
+            Console.Write("Altura del jugador (cm): ");
+            int height = RequestNumber(0, int.MaxValue);
+
+            Console.Write("Peso del jugador (kg): ");
+            int weight = RequestNumber(0, int.MaxValue);
+
+            league.AddPlayer(team, new Player(team, position, dorsalNumber, namePlayer, lastNamePlayer, age, height, weight));
+        }
+
+        public string RequestPositionPlayer()
+        {
+            Console.Write(@"
+(0) Portero
+(1) Defensa
+(2) Mediocentro
+(3) Delantero
+Introduce la posición:");
+            int position = RequestNumber(0, 3);
+
+            switch ((ePositionPlayer)position)
+            {
+                case ePositionPlayer.Portero:
+                    return ePositionPlayer.Portero.ToString();
+                case ePositionPlayer.Defensa:
+                    return ePositionPlayer.Defensa.ToString();
+                case ePositionPlayer.Mediocentro:
+                    return ePositionPlayer.Mediocentro.ToString();
+                case ePositionPlayer.Delantero:
+                    return ePositionPlayer.Delantero.ToString();
+                default:
+                    return null;
+            }
+        }
+
+        public Team RequestTeam()
+        {
+            Console.Write("Introduce el numero del equipo: ");
+            int teamNumber = RequestNumber(0, league.Teams.Count-1);
+
+            return league.Teams[teamNumber];
         }
 
         public void DeleteAPlayer() 
@@ -118,8 +170,10 @@ Introduce el numero: ");
         public void ListPlayersByTeam()
         {
             // Listar clubes
-            // pedir club
-            // Mostrar lista
+            Console.WriteLine(league.GetListTeams());
+            Team team = RequestTeam();
+
+            Console.Write(league.GetPlayersByTeam(team));
         }
     }
 }
