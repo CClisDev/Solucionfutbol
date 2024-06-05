@@ -1,23 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text;
 
 namespace futbol
 {
-    class Team
+    public class Team
     {
-        string name;
-        List<Player> players = new List<Player>();
-        int NumWinners = 0;
-        int NumDefeats = 0;
-        int NumTies = 0;
+        private string name;
+        private List<Player> players = new List<Player>();
+        private int numberWinners = 0;
+        private int numberDefeats = 0;
+        private int numberDraws = 0;
 
         public string Name { get => name; set => name = value; }
         public List<Player> Players { get => players; set => players = value; }
-        public int NumWinners1 { get => NumWinners; set => NumWinners = value; }
-        public int NumDefeats1 { get => NumDefeats; set => NumDefeats = value; }
-        public int NumTies1 { get => NumTies; set => NumTies = value; }
+        public int NumWinners { get => numberWinners; set => numberWinners = value; }
+        public int NumDefeats { get => numberDefeats; set => numberDefeats = value; }
+        public int NumDraws { get => numberDraws; set => numberDraws = value; }
 
-        public Team(string name) { 
+        public Team(string name)
+        { 
             this.name = name;
         }
 
@@ -31,11 +32,19 @@ namespace futbol
             players.Remove(x);
         }
 
-        public void PlayerList() {
-            Console.WriteLine("Player list:");
-            foreach (Player player in players) { 
-                Console.WriteLine(player);
+        public string PlayerList() {
+            StringBuilder listPlayers = new StringBuilder();
+
+            foreach (Player player in players) {
+                listPlayers.AppendLine(player.ToString());
             }
+
+            return listPlayers.ToString();
+        }
+
+        public override string ToString()
+        {
+            return $"Nombre del equipo: {name} | Numero de jugadores: {players.Count} | Partidos Ganados: {numberDefeats} ";
         }
     }
 }

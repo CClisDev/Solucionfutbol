@@ -2,12 +2,19 @@
 {
     public class Player : Person
     {
-        public int numberGoals { get; set; }
-        public int numberAssists { get; set; }
-        public int numberRedCards { get; set; }
-        public int numberYellowCards { get; set; }
-        public int dorsalNumber { get; set; }
-        public string position { get; set; }
+        private int numberGoals;
+        private int numberAssists;
+        private int numberRedCards;
+        private int numberYellowCards;
+        private int dorsalNumber;
+        private string position;
+
+        public int NumberGoals { get => numberGoals; set => numberGoals=value; }
+        public int NumberAssists { get => numberAssists; set => numberAssists=value; }
+        public int NumberRedCards { get => numberRedCards; set => numberRedCards=value; }
+        public int NumberYellowCards { get => numberYellowCards; set => numberYellowCards=value; }
+        public int DorsalNumber { get => dorsalNumber; set => dorsalNumber=value; }
+        public string Position { get => position; set => position=value; }
 
         public Player(string position, int dorsalNumber, string name, string lastName, int age, double height, double weight)
                         : base(name, lastName, age, height, weight)
