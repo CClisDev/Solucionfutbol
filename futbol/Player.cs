@@ -8,6 +8,7 @@
         private int numberYellowCards;
         private int dorsalNumber;
         private string position;
+        private Team team;
 
         public int NumberGoals { get => numberGoals; set => numberGoals=value; }
         public int NumberAssists { get => numberAssists; set => numberAssists=value; }
@@ -15,6 +16,7 @@
         public int NumberYellowCards { get => numberYellowCards; set => numberYellowCards=value; }
         public int DorsalNumber { get => dorsalNumber; set => dorsalNumber=value; }
         public string Position { get => position; set => position=value; }
+        public Team Team { get => team; set => team=value; }
 
         public Player(string position, int dorsalNumber, string name, string lastName, int age, double height, double weight)
                         : base(name, lastName, age, height, weight)

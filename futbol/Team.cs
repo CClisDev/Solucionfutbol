@@ -22,14 +22,14 @@ namespace futbol
             this.name = name;
         }
 
-        public void AddPlayer(Player x)
+        public void AddPlayer(Player player)
         {
-            players.Add(x);
+            players.Add(player);
         }
 
-        public void RemovePlayer(Player x)
+        public void RemovePlayer(Player player)
         {
-            players.Remove(x);
+            players.Remove(player);
         }
 
         public string PlayerList() {
