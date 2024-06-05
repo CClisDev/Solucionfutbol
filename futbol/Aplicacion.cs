@@ -1,5 +1,4 @@
-﻿using futbol.Enum;
-using System;
+﻿using System;
 
 namespace futbol
 {
@@ -16,9 +15,13 @@ namespace futbol
 (3) Eliminar a un jugador
 (4) Listar los jugadores de un club
 (5) Listar equipos de futbol
+(6) Listar todo los jugadores
+(7) Mostrar estadísticas de un club
+(8) Mostrar estadísticas de un jugador
 (0) Salir
 Introduce el numero: ");
                 int option = RequestNumber(0, 5);
+
 
                 switch ((eMenuOptions)option)
                 {
@@ -36,6 +39,9 @@ Introduce el numero: ");
                         break;
                     case eMenuOptions.ListTeams:
                         Console.WriteLine(league.GetListTeams());
+                        break;
+                    case eMenuOptions.ListPlayers:
+                        Console.WriteLine(league.GetPlayersList());
                         break;
                     case eMenuOptions.exit:
                         return;

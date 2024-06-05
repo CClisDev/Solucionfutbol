@@ -1,4 +1,4 @@
-﻿namespace futbol.Enum
+﻿namespace futbol
 {
     public enum ePositionPlayer
     {

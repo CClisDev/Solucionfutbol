@@ -1,4 +1,4 @@
-﻿namespace futbol.Enum
+﻿namespace futbol
 {
     public enum eMenuOptions
     {
@@ -7,6 +7,9 @@
         AddAPlayer,
         DeleteAPlayer,
         ListPlayersByTeam,
-        ListTeams
+        ListTeams,
+        ListPlayers,
+        StatsOfClub,
+        StatsOfPlayer
     }
 }

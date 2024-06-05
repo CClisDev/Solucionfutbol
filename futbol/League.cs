@@ -30,7 +30,7 @@ namespace futbol
 
         public void AddPlayer(Team team, Player player)
         {
-            this.teams.Find(t => t == team).AddPlayer(player); //Añadir el jugador en el equipo
+            team.AddPlayer(player); //Añadir el jugador en el equipo
             this.players.Add(player); // Añadir el jugador en la liga
         }
 
@@ -38,11 +38,12 @@ namespace futbol
         public void RemovePlayer(Player player)
         {
             players.Remove(player);
+            player.Team.RemovePlayer(player);
             teams.Find(t => t == player.Team).Players.Remove(player);
         }
 
         //Listar todo Jugadores
-        public string GetPlayerList()
+        public string GetPlayersList()
         {
             StringBuilder listPlayers = new StringBuilder();
 
