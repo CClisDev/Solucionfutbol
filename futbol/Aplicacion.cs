@@ -11,16 +11,16 @@ namespace futbol
             while (true)
             {
                 Console.Write(@"
-(1) Crear un partido
-(2) Alta a un jugador
-(3) Eliminar a un jugador
-(4) Listar los jugadores de un club
-(5) Listar equipos de futbol
-(6) Listar todo los jugadores
-(7) Mostrar estadísticas de un club
-(8) Mostrar estadísticas de un jugador
-(0) Salir
-Introduce el numero: ");
+                (1) Crear un partido
+                (2) Alta a un jugador
+                (3) Eliminar a un jugador
+                (4) Listar los jugadores de un club
+                (5) Listar equipos de futbol
+                (6) Listar todo los jugadores
+                (7) Mostrar estadísticas de un club
+                (8) Mostrar estadísticas de un jugador
+                (0) Salir
+                Introduce el numero: ");
                 int option = RequestNumber(0, 8);
 
 
@@ -36,13 +36,16 @@ Introduce el numero: ");
                         DeleteAPlayer();
                         break;
                     case eMenuOptions.ListPlayersByTeam:
-                        ListPlayersByTeam();
+                        ListPlayersByTeam();                       
                         break;
                     case eMenuOptions.ListTeams:
                         Console.WriteLine(league.GetListTeams());
                         break;
                     case eMenuOptions.ListPlayers:
-                        Console.WriteLine(league.GetPlayersList());
+                        if (league.GetPlayersList() == "")
+                            Console.WriteLine("Aun no hay jugadores");
+                        else
+                            Console.WriteLine(league.GetPlayersList());
                         break;
                     case eMenuOptions.StatsOfClub:
                         StatisticsOfClub();
@@ -130,11 +133,11 @@ Introduce el numero: ");
         public string RequestPositionPlayer()
         {
             Console.Write(@"
-(0) Portero
-(1) Defensa
-(2) Mediocentro
-(3) Delantero
-Introduce la posición:");
+            (0) Portero
+            (1) Defensa
+            (2) Mediocentro
+            (3) Delantero
+            Introduce la posición:");
             int position = RequestNumber(0, 3);
 
             switch ((ePositionPlayer)position)
